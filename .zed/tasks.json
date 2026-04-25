@@ -1,0 +1,18 @@
+[
+
+        {
+
+                "label": "BUILD & RUN",
+
+                "command": "bash",
+
+                "args":
+                [
+
+                        "-c",
+                        "cd \"$ZED_WORKTREE_ROOT\" && gcc -o PROGRAM $(find . -name \"*.c\") && ./PROGRAM"
+
+                ],
+
+        },
+]

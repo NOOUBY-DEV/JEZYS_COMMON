@@ -1,0 +1,142 @@
+#include "COMMON/STRINGS.h"
+#include <asm-generic/errno.h>
+#include <stdio.h>
+
+
+
+
+void TEST();
+
+
+
+
+int main()
+{
+
+        TEST();
+
+
+        return 0;
+
+}
+
+
+void TEST()
+{
+
+        printf("==================== CONVERSION ====================\n\n");
+
+        // [CONVERSION]
+        {
+
+                // [STRING TO CHAR]
+                {
+
+                        char* STRING__T__CHAR = "A";
+
+
+                        printf("STRING_TO_CHAR : %c \n\n", STRING_TO_CHAR(STRING__T__CHAR));
+
+                }
+
+
+                // [CHAR TO STRING]
+                {
+
+                        char CHAR__T__STRING[2];
+
+                        CHAR_TO_STRING(CHAR__T__STRING, 'A');
+
+
+                        printf("CHAR_TO_STRING : %s \n\n", CHAR__T__STRING);
+
+                }
+
+
+                // [STRING TO INT]
+                {
+
+                        char* STRING__T__INT = "-12314";
+                        int INT__F__STRING;
+
+
+                        STRING_TO_INT(STRING__T__INT, &INT__F__STRING);
+
+
+                        printf("STRING_TO_INT : %d \n\n", INT__F__STRING);
+
+                }
+
+
+                // [STRING]
+
+        }
+
+
+        // [EDIT]
+        {
+
+                printf("==================== EDIT ====================\n\n");
+
+                // [STRING APPEND]
+                {
+
+                        char STRING[64] = EMPTY;
+
+
+                        STRING_APPEND(STRING, "HELLO WORLD");
+
+
+                        printf("STRING_APPEND : %s \n\n", STRING);
+
+                }
+
+
+                // [STRING INSERT CHAR]
+                {
+
+                        char STRING__INSERT__CHAR[64] = "ABCEF";
+
+
+
+                        STRING_INSERT_CHAR(STRING__INSERT__CHAR, 'D', 3);
+
+
+
+                        printf("STRING_INSERT_CHAR : %s \n\n", STRING__INSERT__CHAR);
+
+                }
+
+
+                // [STRING INSERT]
+                {
+
+                        char STRING__INSERT__CHAR[64] = "ABEF";
+
+
+
+                        STRING_INSERT(STRING__INSERT__CHAR, "CD", 2);
+
+
+
+                        printf("STRING_INSERT : %s \n\n", STRING__INSERT__CHAR);
+
+                }
+
+
+                // [SUB STRING SELF]
+                {
+
+                        char STRING[64] = "HELLO WORLD";
+
+
+                        SUB_STRING_SELF(STRING, 0, 5);
+
+
+                        printf("SUB_STRING_SELF : %s \n\n", STRING);
+
+                }
+
+        }
+
+}
