@@ -22,7 +22,7 @@ It has STRINGS, STRING_LISTS, INPUT, MATHS, MISC files.
 
 ## What does it do?
 
-It removes the hassle to handle strings
+It removes the hassle to handle strings and string lists
 
 Example:
 
@@ -52,3 +52,47 @@ Well, yes, although it's given by libc, its lacking:
 - some regular functions like SUB_STRING, STRING_INSERT, and type conversion functions like INT_TO_STRING
 - clear naming : strcat vs STRING_APPEND
 - and much more
+
+<br>
+<br>
+
+## Ok, what else?
+
+String list is hard to make, use, control in C, especially for beginners
+
+<br>
+
+a string list = a list of list of chars
+
+to make, edit, free, theres a lot of addition and subtraction and one-offs involved
+
+most programmers just want to have a string list, add some items to a string list, free a string list
+
+<br>
+
+Example:
+
+<br>
+
+instead of :
+
+<img width="804" height="527" alt="image" src="https://github.com/user-attachments/assets/9dba83f3-d29d-498d-83e5-81b9ea9876fd" />
+
+<br>
+
+You could just :
+
+<img width="541" height="157" alt="image" src="https://github.com/user-attachments/assets/de470ed1-c769-4e04-9b35-f166de7b60d2" />
+
+<br>
+
+clean, mess-free, and simplified
+
+<br>
+
+Full flow:
+
+<img width="641" height="233" alt="image" src="https://github.com/user-attachments/assets/be549677-b2e9-44a8-babf-43e895f247f3" />
+
+
+
