@@ -129,7 +129,7 @@ int STRING_TO_INT(const char* INT_STRING, int* INT)
 }
 
 
-int STRING_TO_LONG_LONG(const char* INT_STRING, long long* INT)
+int STRING_TO_LONG_LONG(const char* INT_STRING, long long* LONG_LONG)
 {
 
         short SIGN = 0;
@@ -137,7 +137,7 @@ int STRING_TO_LONG_LONG(const char* INT_STRING, long long* INT)
 
 
 
-        *INT = 0;
+        *LONG_LONG = 0;
 
 
 
@@ -162,13 +162,13 @@ int STRING_TO_LONG_LONG(const char* INT_STRING, long long* INT)
         for (INDEX = INDEX; INT_STRING[INDEX] != '\0'; INDEX++)
         {
 
-                *INT = (*INT) * 10 + INT_STRING[INDEX] - '0';
+                *LONG_LONG = (*LONG_LONG) * 10 + INT_STRING[INDEX] - '0';
 
         }
 
 
 
-        *INT *= SIGN;
+        *LONG_LONG *= SIGN;
 
 
 
@@ -177,10 +177,10 @@ int STRING_TO_LONG_LONG(const char* INT_STRING, long long* INT)
 }
 
 
-int STRING_TO_UNSIGNED_INT(const char* STRING, unsigned int* INT)
+int STRING_TO_UNSIGNED_INT(const char* STRING, unsigned int* UNSIGNED_INT)
 {
 
-        *INT = 0;
+        *UNSIGNED_INT = 0;
 
 
 
@@ -203,7 +203,7 @@ int STRING_TO_UNSIGNED_INT(const char* STRING, unsigned int* INT)
         for (unsigned long long INDEX = 0; STRING[INDEX] != '\0'; INDEX ++)
         {
 
-               *INT = ((*INT) * 10) + (STRING[INDEX] - '0');
+               *UNSIGNED_INT = ((*UNSIGNED_INT) * 10) + (STRING[INDEX] - '0');
 
         }
 
@@ -213,10 +213,10 @@ int STRING_TO_UNSIGNED_INT(const char* STRING, unsigned int* INT)
 }
 
 
-int STRING_TO_UNSIGNED_LONG_LONG(const char* STRING, unsigned long long* INT)
+int STRING_TO_UNSIGNED_LONG_LONG(const char* STRING, unsigned long long* UNSIGNED_LONG_LONG)
 {
 
-        *INT = 0;
+        *UNSIGNED_LONG_LONG = 0;
 
 
 
@@ -239,7 +239,7 @@ int STRING_TO_UNSIGNED_LONG_LONG(const char* STRING, unsigned long long* INT)
         for (unsigned long long INDEX = 0; STRING[INDEX] != '\0'; INDEX ++)
         {
 
-               *INT = ((*INT) * 10) + (STRING[INDEX] - '0');
+               *UNSIGNED_LONG_LONG = ((*UNSIGNED_LONG_LONG) * 10) + (STRING[INDEX] - '0');
 
         }
 
