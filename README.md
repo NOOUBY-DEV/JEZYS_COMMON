@@ -1,9 +1,12 @@
+
 # JEZYS_COMMON
  A common library in C that cuts off the hassle of handling strings, lists, input
 
- 
-<img width="1048" height="854" alt="COMMON_CODE1" src="https://github.com/user-attachments/assets/3905b31c-c8a5-4624-a76c-3a441c0994ef" />
+<img width="1820" height="640" alt="JEZYS_COMMON_BANNER" src="https://github.com/user-attachments/assets/32337f7b-a580-4540-b00d-62565338f569" />
 
+<br>
+
+<img width="1048" height="730" alt="COMMON_CODE1" src="https://github.com/user-attachments/assets/7107c4f8-fd49-4e69-b50e-2cee3a4840f9" />
 
 <br>
 <br>
@@ -58,7 +61,7 @@ Well, yes, although it's given by libc, its lacking:
 
 ## Ok, what else?
 
-String list is hard to make, use, control in C, especially for beginners
+String lists are hard to make, use, control in C, especially for beginners
 
 <br>
 
@@ -94,5 +97,15 @@ Full flow:
 
 <img width="641" height="233" alt="image" src="https://github.com/user-attachments/assets/be549677-b2e9-44a8-babf-43e895f247f3" />
 
+<br>
+<br>
 
+## I have suggestions
 
+It's totally fine the give suggestion, in fact, i encourage it
+
+If this library could grow, I'd love to get more countributors to suggest, improve, and add to this library
+
+<br>
+
+The README goes to here for now, thanks for reading.
