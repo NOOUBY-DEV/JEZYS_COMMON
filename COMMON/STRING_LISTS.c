@@ -120,6 +120,7 @@ void STRING_LIST_APPEND(char*** STRING_LIST, const char* APPEND_STRING)
 
         }
 
+
         STRING_COPY((*STRING_LIST)[INDEX + 1], APPEND_STRING);
 
 }

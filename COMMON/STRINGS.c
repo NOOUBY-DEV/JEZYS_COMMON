@@ -1,4 +1,6 @@
 #include "STRINGS.h"
+#include <stdarg.h>
+#include <stdio.h>
 
 
 
@@ -811,17 +813,6 @@ void STRING_REMOVE_CHAR(char* STRING, const char CHAR)
 void STRING_TRIM(char* STRING)
 {
 
-        unsigned long long OUTER_INDEX;
-        unsigned long long STARTING;
-        unsigned long long ENDING;
-
-
-
-        STARTING = 0;
-        ENDING = STRING_LENGTH(STRING) - 1;
-
-
-
         if (STRING_IS_EMPTY(STRING))
         {
 
@@ -830,41 +821,24 @@ void STRING_TRIM(char* STRING)
         }
 
 
-        while (STRING[STARTING] == ' ' || STRING[STARTING] == '\n')
+        for (unsigned long long INDEX = 0; STRING[INDEX] != '\0'; INDEX ++)
         {
 
-                STARTING ++;
-
-        }
-
-        while (ENDING >= STARTING && (STRING[ENDING] == ' ' || STRING[ENDING] == '\n'))
-        {
-
-                ENDING --;
-
-        }
-
-        for (OUTER_INDEX = STARTING; OUTER_INDEX <= ENDING; OUTER_INDEX ++)
-        {
-
-                STRING[OUTER_INDEX - STARTING] = STRING[OUTER_INDEX];
-
-        }
-
-
-        STRING[OUTER_INDEX - STARTING] = '\0';
-
-
-        for (unsigned long long INNER_INDEX = 0; STRING[INNER_INDEX] != '\0'; INNER_INDEX ++)
-        {
-
-                if (STRING[INNER_INDEX] == ' ' || STRING[INNER_INDEX] == '\n')
+                if (STRING[INDEX] == ' ' || STRING[INDEX] == '\n')
                 {
 
-                        while (STRING[INNER_INDEX + 1] == ' ' || STRING[INNER_INDEX + 1] == '\n')
+                        while (STRING[INDEX + 1] == ' ' || STRING[INDEX + 1] == '\n')
                         {
 
-                                STRING_REMOVE_INDEX(STRING, INNER_INDEX + 1);
+                                STRING_REMOVE_INDEX(STRING, INDEX + 1);
+
+                        }
+
+
+                        if (INDEX == 0 || STRING[INDEX + 1] == '\0')
+                        {
+
+                                STRING_REMOVE_INDEX(STRING, INDEX);
 
                         }
 
@@ -888,11 +862,10 @@ int STRING_FORMAT(char* STRING, const char* FORMAT, ...)
 
         va_list VARIABLES;
 
-        unsigned long long VARIABLE_INDEX = 0;
-        unsigned long long FORMAT_MARKER_COUNT = 0;
 
 
         va_start(VARIABLES, FORMAT);
+
 
 
         STRING_CLEAR(STRING);
@@ -908,16 +881,24 @@ int STRING_FORMAT(char* STRING, const char* FORMAT, ...)
                         char* VARIABLE = va_arg(VARIABLES, char*);
 
 
+
+                        if (VARIABLE == NULL)
+                        {
+
+                                va_end(VARIABLES);
+
+
+                                return STR_FAILURE;
+
+                        }
+
+
+
                         STRING_APPEND(STRING, VARIABLE);
 
 
+
                         INDEX ++;
-
-
-                        VARIABLE_INDEX ++;
-
-
-                        FORMAT_MARKER_COUNT ++;
 
                 }
                 else
@@ -932,15 +913,6 @@ int STRING_FORMAT(char* STRING, const char* FORMAT, ...)
 
 
         va_end(VARIABLES);
-
-
-
-        if (FORMAT_MARKER_COUNT != VARIABLE_INDEX + 1)
-        {
-
-                return STR_WARNING;
-
-        }
 
 
 
@@ -965,6 +937,7 @@ int STRING_EQUALS(const char* STRING, const char* COMPARER)
 
 
         return STRING[INDEX] == COMPARER[INDEX];
+
 }
 
 

@@ -167,6 +167,37 @@ void TEST()
 
                 }
 
+
+                // [STRING TRIM]
+                {
+
+                        char STRING[] = "              HELLO MY NAME IS NOOUBY     AND I LOVE C        ";
+
+
+                        STRING_TRIM(STRING);
+
+
+                        printf("STRING_TRIM : |%s|\n\n", STRING);
+
+                }
+
+
+                // [STRING FORMAT]
+                {
+
+                        char STRING[256];
+                        char FORMAT[] = "HELLO MY NAME IS %V AND I LOVE %V";
+                        char NAME[] = "NOOUBY";
+                        char LANGUAGE[] = "C";
+
+
+                        int RUN = STRING_FORMAT(STRING, FORMAT, NAME, LANGUAGE);
+
+
+                        printf("STRING_FORMAT : |%s|, RUN : %d", STRING, RUN);
+
+                }
+
         }
 
 }
