@@ -72,7 +72,7 @@ void WORD_LIST_TO_STRING(char** WORD_LIST, char* STRING);
  *
  * NOTE 2 : ANY int OVERFLOW WILL NOT BE HANDLED
  *
- * USAGE  : STRING_TO_INT("-12345", INT);
+ * USAGE  : STRING_TO_INT("-12345", &INT);
 */
 int STRING_TO_INT(const char* INT_STRING, int* INT);
 
@@ -84,7 +84,7 @@ int STRING_TO_INT(const char* INT_STRING, int* INT);
  *
  * NOTE 2 : ANY long long OVERFLOW WILL NOT BE HANDLED
  *
- * USAGE  : STRING_TO_LONG_LONG("-12345", LONG_LONG);
+ * USAGE  : STRING_TO_LONG_LONG("-12345", &LONG_LONG);
 */
 int STRING_TO_LONG_LONG(const char* INT_STRING, long long* LONG_LONG);
 
@@ -96,7 +96,7 @@ int STRING_TO_LONG_LONG(const char* INT_STRING, long long* LONG_LONG);
  *
  * NOTE 2 : ANY unsigned int OVERFLOW WILL NOT BE HANDLED
  *
- * USAGE  : STRING_TO_UNSIGNED_INT("12345", UNSIGNED_INT);
+ * USAGE  : STRING_TO_UNSIGNED_INT("12345", &UNSIGNED_INT);
 */
 int STRING_TO_UNSIGNED_INT(const char* STRING, unsigned int* UNSIGNED_INT);
 
@@ -108,7 +108,7 @@ int STRING_TO_UNSIGNED_INT(const char* STRING, unsigned int* UNSIGNED_INT);
  *
  * NOTE 2 : ANY unsigned long long OVERFLOW WILL NOT BE HANDLED
  *
- * USAGE  : STRING_TO_UNSIGNED_LONG_LONG("12345", UNSIGNED_LONG_LONG);
+ * USAGE  : STRING_TO_UNSIGNED_LONG_LONG("12345", &UNSIGNED_LONG_LONG);
 */
 int STRING_TO_UNSIGNED_LONG_LONG(const char* STRING, unsigned long long* UNSIGNED_LONG_LONG);
 
@@ -192,6 +192,10 @@ void STRING_TO_LOWER(char* STRING);
 void STRING_APPEND(char* STRING, const char* APPEND);
 
 void STRING_APPEND_CHAR(char* STRING, const char CHAR);
+
+void STRING_PREPEND(char* STRING, const char* PREPEND);
+
+void STRING_PREPEND_CHAR(char* STRING, const char PREPEND);
 
 int STRING_INSERT(char* STRING, const char* INSERT_STRING, const unsigned long long INSERT_INDEX);
 

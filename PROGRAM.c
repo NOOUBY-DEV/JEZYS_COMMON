@@ -1,5 +1,4 @@
 #include "COMMON/STRINGS.h"
-#include <asm-generic/errno.h>
 #include <stdio.h>
 
 
@@ -25,6 +24,8 @@ void TEST()
 {
 
         printf("==================== CONVERSION ====================\n\n");
+
+
 
         // [CONVERSION]
         {
@@ -78,6 +79,8 @@ void TEST()
 
                 printf("==================== EDIT ====================\n\n");
 
+
+
                 // [STRING APPEND]
                 {
 
@@ -88,6 +91,33 @@ void TEST()
 
 
                         printf("STRING_APPEND : %s \n\n", STRING);
+
+                }
+
+                // [STRING PREPEND]
+                {
+
+                        char STRING[64] = "DEF";
+
+
+                        STRING_PREPEND(STRING, "ABC");
+
+
+                        printf("STRING_PREPEND : %s \n\n", STRING);
+
+                }
+
+
+                // [STRING PREPEND CHAR]
+                {
+
+                        char STRING[64] = "BCDEF";
+
+
+                        STRING_PREPEND_CHAR(STRING, 'A');
+
+
+                        printf("STRING_PREPEND_CHAR : %s \n\n", STRING);
 
                 }
 

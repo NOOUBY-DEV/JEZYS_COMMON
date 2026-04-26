@@ -5,12 +5,25 @@
 
 
 
+#define STRLIST_SUCCESS 1
+#define STRLIST_FAILURE 0
 
 
-void STRING_LIST_SETUP(char*** STRING_LIST, const unsigned long long LIST_SIZE, const unsigned long long STRING_SIZE)
+
+
+int STRING_LIST_SETUP(char*** STRING_LIST, const unsigned long long LIST_SIZE, const unsigned long long STRING_SIZE)
 {
 
         *STRING_LIST = malloc((LIST_SIZE + 1) * sizeof(char*));
+
+
+
+        if (*STRING_LIST == NULL)
+        {
+
+                return STRLIST_FAILURE;
+
+        }
 
 
         for (unsigned long long INDEX = 0; INDEX < LIST_SIZE; INDEX ++)
@@ -18,31 +31,59 @@ void STRING_LIST_SETUP(char*** STRING_LIST, const unsigned long long LIST_SIZE, 
 
                 (*STRING_LIST)[INDEX] = malloc(STRING_SIZE);
 
+
+                if ((*STRING_LIST)[INDEX] == NULL)
+                {
+
+                        for (unsigned long long COUNTER = 0; COUNTER < INDEX; COUNTER ++)
+                        {
+
+                                free((*STRING_LIST)[COUNTER]);
+
+                        }
+
+
+                        free(*STRING_LIST);
+
+
+                        *STRING_LIST = NULL;
+
+
+                        return STRLIST_FAILURE;
+
+                }
+
+
                 STRING_CLEAR((*STRING_LIST)[INDEX]);
 
         }
 
 
+
         (*STRING_LIST)[LIST_SIZE] = NULL;
+
+
+
+        return STR_SUCCESS;
 
 }
 
 
-void FREE_STRING_LIST(char** STRING_LIST)
+void FREE_STRING_LIST(char*** STRING_LIST)
 {
 
-        const unsigned long long LIST_SIZE = STRING_LIST_SIZE(&STRING_LIST);
+        const unsigned long long LIST_SIZE = STRING_LIST_SIZE(STRING_LIST);
 
 
         for (unsigned long long INDEX = 0; INDEX < LIST_SIZE; INDEX ++)
         {
 
-                free(STRING_LIST[INDEX]);
+                free((*STRING_LIST)[INDEX]);
 
         }
 
 
-        free(STRING_LIST);
+        free(*STRING_LIST);
 
 }
 

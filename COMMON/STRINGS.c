@@ -454,6 +454,48 @@ void STRING_APPEND_CHAR(char* STRING, const char CHAR)
 }
 
 
+void STRING_PREPEND(char* STRING, const char* PREPEND)
+{
+
+        unsigned long long OLD_LENGTH = STRING_LENGTH(STRING);
+        unsigned long long PREPEND_LENGTH = STRING_LENGTH(PREPEND);
+
+
+
+        for (unsigned long long INDEX = OLD_LENGTH + PREPEND_LENGTH - 1; INDEX >= OLD_LENGTH; INDEX --)
+        {
+
+                STRING[INDEX] = STRING[INDEX - PREPEND_LENGTH];
+
+        }
+
+
+        for (unsigned long long INDEX = 0; PREPEND[INDEX] != '\0'; INDEX ++)
+        {
+
+                STRING[INDEX] = PREPEND[INDEX];
+
+        }
+
+}
+
+
+void STRING_PREPEND_CHAR(char* STRING, const char PREPEND)
+{
+
+        for (unsigned long long INDEX = STRING_LENGTH(STRING); INDEX > 0; INDEX --)
+        {
+
+                STRING[INDEX] = STRING[INDEX - 1];
+
+        }
+
+
+        STRING[0] = PREPEND;
+
+}
+
+
 int STRING_INSERT(char* STRING, const char* INSERT_STRING, const unsigned long long INSERT_INDEX)
 {
 
