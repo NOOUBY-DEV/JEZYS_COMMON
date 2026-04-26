@@ -102,7 +102,7 @@ Full flow:
 
 ## I have suggestions
 
-It's totally fine the give suggestion, in fact, i encourage it
+It's totally fine to give suggestions, in fact, i encourage it
 
 If this library could grow, I'd love to get more countributors to suggest, improve, and add to this library
 
