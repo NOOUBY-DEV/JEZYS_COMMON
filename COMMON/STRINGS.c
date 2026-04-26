@@ -483,12 +483,21 @@ void STRING_PREPEND(char* STRING, const char* PREPEND)
 void STRING_PREPEND_CHAR(char* STRING, const char PREPEND)
 {
 
-        for (unsigned long long INDEX = STRING_LENGTH(STRING); INDEX > 0; INDEX --)
+        const unsigned long long LENGTH = STRING_LENGTH(STRING);
+
+
+
+        for (unsigned long long INDEX = LENGTH; INDEX > 0; INDEX --)
         {
 
                 STRING[INDEX] = STRING[INDEX - 1];
 
         }
+
+
+
+        STRING[LENGTH + 1] = '\0';
+
 
 
         STRING[0] = PREPEND;
