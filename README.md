@@ -6,7 +6,8 @@
 
 <br>
 
-<img width="1048" height="730" alt="COMMON_CODE1" src="https://github.com/user-attachments/assets/7107c4f8-fd49-4e69-b50e-2cee3a4840f9" />
+<img width="1024" height="682" alt="image" src="https://github.com/user-attachments/assets/fd24e3fd-13ec-4d28-8fab-efab124e35dc" />
+
 
 <br>
 <br>
@@ -27,13 +28,13 @@ It has STRINGS, STRING_LISTS, INPUT, MATHS, MISC files.
 
 It removes the hassle to handle strings and string lists
 
-Example:
+Example :
 
 <br>
 
 instead of :
 
-<img width="599" height="145" alt="COMMON_CODE_SNIP1" src="https://github.com/user-attachments/assets/8d5b3cbf-bfa6-4c71-8540-3e53278075cd" />
+<img width="512" height="146" alt="image" src="https://github.com/user-attachments/assets/26e4dbf0-49cc-4538-8e77-b25615a884e8" />
 
 <br>
 
@@ -73,13 +74,13 @@ most programmers just want to have a string list, add some items to a string lis
 
 <br>
 
-Example:
+Example :
 
 <br>
 
 instead of :
 
-<img width="804" height="527" alt="image" src="https://github.com/user-attachments/assets/9dba83f3-d29d-498d-83e5-81b9ea9876fd" />
+<img width="734" height="510" alt="image" src="https://github.com/user-attachments/assets/2b045273-e007-444b-94ac-0ec470e8da04" />
 
 <br>
 
@@ -93,7 +94,7 @@ clean, mess-free, and simplified
 
 <br>
 
-Full flow:
+Full flow :
 
 <img width="641" height="233" alt="image" src="https://github.com/user-attachments/assets/be549677-b2e9-44a8-babf-43e895f247f3" />
 
