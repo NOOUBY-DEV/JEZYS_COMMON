@@ -78,15 +78,15 @@ int STRING_TO_INT(const char* INT_STRING, int* INT);
 
 
 /**
- * BRIEF  : TAKES A STRING THATS EXACTLY A long long FORMAT, AND EDITS LONG_LONG TO IT
+ * BRIEF  : TAKES A STRING THATS EXACTLY A long FORMAT, AND EDITS LONG TO IT
  *
- * NOTE 1 : IF THE STRING IS AN INVALID long long FORMAT, IT RETURNS STR_FAILURE, OTHERWISE, STR_SUCCESS
+ * NOTE 1 : IF THE STRING IS AN INVALID long FORMAT, IT RETURNS STR_FAILURE, OTHERWISE, STR_SUCCESS
  *
- * NOTE 2 : ANY long long OVERFLOW WILL NOT BE HANDLED
+ * NOTE 2 : ANY long OVERFLOW WILL NOT BE HANDLED
  *
- * USAGE  : STRING_TO_LONG_LONG("-12345", &LONG_LONG);
+ * USAGE  : STRING_TO_LONG("-12345", &LONG);
 */
-int STRING_TO_LONG_LONG(const char* INT_STRING, long long* LONG_LONG);
+int STRING_TO_LONG(const char* INT_STRING, long* LONG);
 
 
 /**
@@ -102,15 +102,15 @@ int STRING_TO_UNSIGNED_INT(const char* STRING, unsigned int* UNSIGNED_INT);
 
 
 /**
- * BRIEF  : TAKES A STRING THATS EXACTLY AN unsigned long long FORMAT, AND EDITS UNSIGNED_LONG_LONG TO IT
+ * BRIEF  : TAKES A STRING THATS EXACTLY AN unsigned long FORMAT, AND EDITS UNSIGNED_LONG TO IT
  *
- * NOTE 1 : IF THE STRING IS AN INVALID unsigned long long FORMAT, IT RETURNS STR_FAILURE, OTHERWISE, STR_SUCCESS
+ * NOTE 1 : IF THE STRING IS AN INVALID unsigned long FORMAT, IT RETURNS STR_FAILURE, OTHERWISE, STR_SUCCESS
  *
- * NOTE 2 : ANY unsigned long long OVERFLOW WILL NOT BE HANDLED
+ * NOTE 2 : ANY unsigned long OVERFLOW WILL NOT BE HANDLED
  *
- * USAGE  : STRING_TO_UNSIGNED_LONG_LONG("12345", &UNSIGNED_LONG_LONG);
+ * USAGE  : STRING_TO_UNSIGNED_LONG("12345", &UNSIGNED_LONG);
 */
-int STRING_TO_UNSIGNED_LONG_LONG(const char* STRING, unsigned long long* UNSIGNED_LONG_LONG);
+int STRING_TO_UNSIGNED_LONG(const char* STRING, unsigned long* UNSIGNED_LONG);
 
 
 /**
@@ -120,7 +120,7 @@ int STRING_TO_UNSIGNED_LONG_LONG(const char* STRING, unsigned long long* UNSIGNE
  *
  * USAGE  : INT_TO_STRING(INT_STRING, -12345);
 */
-void INT_TO_STRING(char* STRING, long long INT);
+void INT_TO_STRING(char* STRING, long INT);
 
 
 /**
@@ -130,7 +130,7 @@ void INT_TO_STRING(char* STRING, long long INT);
  *
  * USAGE  : INT_TO_STRING(UNSIGNED_INT_STRING, 12345);
 */
-void UNSIGNED_INT_TO_STRING(char* STRING, unsigned long long LONG_LONG);
+void UNSIGNED_INT_TO_STRING(char* STRING, unsigned long);
 
 
 /**
@@ -197,15 +197,15 @@ void STRING_PREPEND(char* STRING, const char* PREPEND);
 
 void STRING_PREPEND_CHAR(char* STRING, const char PREPEND);
 
-int STRING_INSERT(char* STRING, const char* INSERT_STRING, const unsigned long long INSERT_INDEX);
+int STRING_INSERT(char* STRING, const char* INSERT_STRING, const unsigned long INSERT_INDEX);
 
-int STRING_INSERT_CHAR(char* STRING, const char INSERT_CHAR, const unsigned long long INSERT_INDEX);
+int STRING_INSERT_CHAR(char* STRING, const char INSERT_CHAR, const unsigned long INSERT_INDEX);
 
 void STRING_FLIP(char* STRING);
 
-int SUB_STRING_SELF(char* STRING, const unsigned long long STARTING_INDEX, const unsigned long long TO_TAKE);
+int SUB_STRING_SELF(char* STRING, const unsigned long STARTING_INDEX, const unsigned long TO_TAKE);
 
-int SUB_STRING(const char* BASE_STRING, char* SUB_STRING, const unsigned long long STARTING_INDEX, const unsigned long long TO_TAKE);
+int SUB_STRING(const char* BASE_STRING, char* SUB_STRING, const unsigned long STARTING_INDEX, const unsigned long TO_TAKE);
 
 void STRING_COPY(char* DESTINATION, const char* STRING);
 
@@ -217,7 +217,7 @@ void STRING_REMOVE_FIRST(char* STRING);
 
 void STRING_REMOVE_LAST(char* STRING);
 
-int STRING_REMOVE_INDEX(char* STRING, unsigned long long INDEX);
+int STRING_REMOVE_INDEX(char* STRING, unsigned long INDEX);
 
 void STRING_REMOVE_CHAR(char* STRING, const char CHAR);
 
@@ -264,7 +264,7 @@ int STRING_IS_INT(const char* STRING);
  *
  * USAGE  : int LENGTH = STRING_LENGTH("ABCDEF");
 */
-unsigned long long STRING_LENGTH(const char *STRING);
+unsigned long STRING_LENGTH(const char *STRING);
 
 
 /**
@@ -274,7 +274,7 @@ unsigned long long STRING_LENGTH(const char *STRING);
  *
  * USAGE  : int SIZE = STRING_SIZE("ABCDEF");
 */
-unsigned long long STRING_SIZE(const char* STRING);
+unsigned long STRING_SIZE(const char* STRING);
 
 
 //

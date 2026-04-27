@@ -160,10 +160,10 @@ void TEST()
                         char STRING[64] = "HELLO WORLD";
 
 
-                        SUB_STRING_SELF(STRING, 0, 5);
+                        SUB_STRING_SELF(STRING, 6, 5);
 
 
-                        printf("SUB_STRING_SELF : %s \n\n", STRING);
+                        printf("SUB_STRING_SELF : |%s| \n\n", STRING);
 
                 }
 
@@ -194,7 +194,28 @@ void TEST()
                         int RUN = STRING_FORMAT(STRING, FORMAT, NAME, LANGUAGE);
 
 
-                        printf("STRING_FORMAT : |%s|, RUN : %d", STRING, RUN);
+                        printf("STRING_FORMAT : |%s|\n\n", STRING);
+
+                }
+
+        }
+
+
+        // [CONDITIONS]
+        {
+
+                printf("==================== CONDITIONS ====================\n\n");
+
+
+
+                // [STRING ENDS WITH]
+                {
+
+                        char STRING[] = "ABCDEFG";
+                        char ENDING[] = "EFG";
+
+
+                        printf("STRING ENDS WITH : ABCDEFG, EFG : %d\n\n", STRING_ENDS_WITH(STRING, ENDING));
 
                 }
 

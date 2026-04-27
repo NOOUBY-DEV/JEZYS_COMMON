@@ -1,6 +1,4 @@
 #include "STRINGS.h"
-#include <stdarg.h>
-#include <stdio.h>
 
 
 
@@ -28,7 +26,7 @@ void CHAR_TO_STRING(char* STRING, const char CHAR)
 void STRING_TO_WORD_LIST(char*** WORD_LIST, char* STRING)
 {
 
-        unsigned long long WORD_LIST_INDEX = 0;
+        unsigned long WORD_LIST_INDEX = 0;
 
 
         STRING_TRIM(STRING);
@@ -37,7 +35,7 @@ void STRING_TO_WORD_LIST(char*** WORD_LIST, char* STRING)
         STRING_CLEAR((*WORD_LIST)[WORD_LIST_INDEX]);
 
 
-        for (unsigned long long INDEX = 0; STRING[INDEX] != '\0'; INDEX ++)
+        for (unsigned long INDEX = 0; STRING[INDEX] != '\0'; INDEX ++)
         {
 
                 char CHAR = STRING[INDEX];
@@ -55,6 +53,7 @@ void STRING_TO_WORD_LIST(char*** WORD_LIST, char* STRING)
 
                         WORD_LIST_INDEX ++;
 
+
                         STRING_CLEAR((*WORD_LIST)[WORD_LIST_INDEX]);
 
                 }
@@ -70,7 +69,7 @@ void WORD_LIST_TO_STRING(char** WORD_LIST, char* STRING)
         STRING_CLEAR(STRING);
 
 
-        for (unsigned long long INDEX = 0; WORD_LIST[INDEX] != NULL; INDEX ++)
+        for (unsigned long INDEX = 0; WORD_LIST[INDEX] != NULL; INDEX ++)
         {
 
                 STRING_APPEND(STRING, WORD_LIST[INDEX]);
@@ -131,7 +130,7 @@ int STRING_TO_INT(const char* INT_STRING, int* INT)
 }
 
 
-int STRING_TO_LONG_LONG(const char* INT_STRING, long long* LONG_LONG)
+int STRING_TO_LONG(const char* INT_STRING, long* LONG)
 {
 
         short SIGN = 0;
@@ -139,7 +138,7 @@ int STRING_TO_LONG_LONG(const char* INT_STRING, long long* LONG_LONG)
 
 
 
-        *LONG_LONG = 0;
+        *LONG = 0;
 
 
 
@@ -164,13 +163,13 @@ int STRING_TO_LONG_LONG(const char* INT_STRING, long long* LONG_LONG)
         for (INDEX = INDEX; INT_STRING[INDEX] != '\0'; INDEX++)
         {
 
-                *LONG_LONG = (*LONG_LONG) * 10 + INT_STRING[INDEX] - '0';
+                *LONG = (*LONG) * 10 + INT_STRING[INDEX] - '0';
 
         }
 
 
 
-        *LONG_LONG *= SIGN;
+        *LONG *= SIGN;
 
 
 
@@ -202,7 +201,7 @@ int STRING_TO_UNSIGNED_INT(const char* STRING, unsigned int* UNSIGNED_INT)
         }
 
 
-        for (unsigned long long INDEX = 0; STRING[INDEX] != '\0'; INDEX ++)
+        for (unsigned long INDEX = 0; STRING[INDEX] != '\0'; INDEX ++)
         {
 
                *UNSIGNED_INT = ((*UNSIGNED_INT) * 10) + (STRING[INDEX] - '0');
@@ -215,10 +214,10 @@ int STRING_TO_UNSIGNED_INT(const char* STRING, unsigned int* UNSIGNED_INT)
 }
 
 
-int STRING_TO_UNSIGNED_LONG_LONG(const char* STRING, unsigned long long* UNSIGNED_LONG_LONG)
+int STRING_TO_UNSIGNED_LONG(const char* STRING, unsigned long* UNSIGNED_LONG)
 {
 
-        *UNSIGNED_LONG_LONG = 0;
+        *UNSIGNED_LONG = 0;
 
 
 
@@ -238,10 +237,10 @@ int STRING_TO_UNSIGNED_LONG_LONG(const char* STRING, unsigned long long* UNSIGNE
         }
 
 
-        for (unsigned long long INDEX = 0; STRING[INDEX] != '\0'; INDEX ++)
+        for (unsigned long INDEX = 0; STRING[INDEX] != '\0'; INDEX ++)
         {
 
-               *UNSIGNED_LONG_LONG = ((*UNSIGNED_LONG_LONG) * 10) + (STRING[INDEX] - '0');
+               *UNSIGNED_LONG = ((*UNSIGNED_LONG) * 10) + (STRING[INDEX] - '0');
 
         }
 
@@ -251,7 +250,7 @@ int STRING_TO_UNSIGNED_LONG_LONG(const char* STRING, unsigned long long* UNSIGNE
 }
 
 
-void INT_TO_STRING(char* STRING, long long INT)
+void INT_TO_STRING(char* STRING, long INT)
 {
 
         STRING_CLEAR(STRING);
@@ -297,7 +296,7 @@ void INT_TO_STRING(char* STRING, long long INT)
 }
 
 
-void UNSIGNED_INT_TO_STRING(char* STRING, unsigned long long INT)
+void UNSIGNED_INT_TO_STRING(char* STRING, unsigned long INT)
 {
 
         STRING_CLEAR(STRING);
@@ -387,7 +386,7 @@ void STRING_TO_UPPER(char* STRING)
         const char* LOWER = "abcdefghijklmnopqrstuvwxyz";
 
 
-        for (unsigned long long INDEX = 0; STRING[INDEX] != '\0'; INDEX ++)
+        for (unsigned long INDEX = 0; STRING[INDEX] != '\0'; INDEX ++)
         {
 
                 if (STRING_CONTAINS_CHAR(LOWER, STRING[INDEX]))
@@ -408,7 +407,7 @@ void STRING_TO_LOWER(char* STRING)
         const char* UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 
-        for (unsigned long long INDEX = 0; STRING[INDEX] != '\0'; INDEX ++)
+        for (unsigned long INDEX = 0; STRING[INDEX] != '\0'; INDEX ++)
         {
 
                 if (STRING_CONTAINS_CHAR(UPPER, STRING[INDEX]))
@@ -426,8 +425,8 @@ void STRING_TO_LOWER(char* STRING)
 void STRING_APPEND(char* STRING, const char* APPEND)
 {
 
-        unsigned long long STRING_INDEX;
-	unsigned long long APPEND_INDEX;
+        unsigned long STRING_INDEX;
+	unsigned long APPEND_INDEX;
 
 
 
@@ -447,7 +446,7 @@ void STRING_APPEND(char* STRING, const char* APPEND)
 void STRING_APPEND_CHAR(char* STRING, const char CHAR)
 {
 
-        unsigned long long LENGTH = STRING_LENGTH(STRING);
+        unsigned long LENGTH = STRING_LENGTH(STRING);
 
 
         STRING[LENGTH] = CHAR;
@@ -459,12 +458,12 @@ void STRING_APPEND_CHAR(char* STRING, const char CHAR)
 void STRING_PREPEND(char* STRING, const char* PREPEND)
 {
 
-        unsigned long long OLD_LENGTH = STRING_LENGTH(STRING);
-        unsigned long long PREPEND_LENGTH = STRING_LENGTH(PREPEND);
+        unsigned long OLD_LENGTH = STRING_LENGTH(STRING);
+        unsigned long PREPEND_LENGTH = STRING_LENGTH(PREPEND);
 
 
 
-        for (unsigned long long INDEX = OLD_LENGTH + PREPEND_LENGTH - 1; INDEX >= OLD_LENGTH; INDEX --)
+        for (unsigned long INDEX = OLD_LENGTH + PREPEND_LENGTH - 1; INDEX >= OLD_LENGTH; INDEX --)
         {
 
                 STRING[INDEX] = STRING[INDEX - PREPEND_LENGTH];
@@ -472,7 +471,7 @@ void STRING_PREPEND(char* STRING, const char* PREPEND)
         }
 
 
-        for (unsigned long long INDEX = 0; PREPEND[INDEX] != '\0'; INDEX ++)
+        for (unsigned long INDEX = 0; PREPEND[INDEX] != '\0'; INDEX ++)
         {
 
                 STRING[INDEX] = PREPEND[INDEX];
@@ -485,11 +484,11 @@ void STRING_PREPEND(char* STRING, const char* PREPEND)
 void STRING_PREPEND_CHAR(char* STRING, const char PREPEND)
 {
 
-        const unsigned long long LENGTH = STRING_LENGTH(STRING);
+        const unsigned long LENGTH = STRING_LENGTH(STRING);
 
 
 
-        for (unsigned long long INDEX = LENGTH; INDEX > 0; INDEX --)
+        for (unsigned long INDEX = LENGTH; INDEX > 0; INDEX --)
         {
 
                 STRING[INDEX] = STRING[INDEX - 1];
@@ -507,11 +506,11 @@ void STRING_PREPEND_CHAR(char* STRING, const char PREPEND)
 }
 
 
-int STRING_INSERT(char* STRING, const char* INSERT_STRING, const unsigned long long INSERT_INDEX)
+int STRING_INSERT(char* STRING, const char* INSERT_STRING, const unsigned long INSERT_INDEX)
 {
 
-        unsigned long long FULL_LENGTH = STRING_LENGTH(STRING);
-        unsigned long long INSERT_LENGTH = STRING_LENGTH(INSERT_STRING);
+        const unsigned long FULL_LENGTH = STRING_LENGTH(STRING);
+        const unsigned long INSERT_LENGTH = STRING_LENGTH(INSERT_STRING);
 
 
 
@@ -523,7 +522,7 @@ int STRING_INSERT(char* STRING, const char* INSERT_STRING, const unsigned long l
         }
 
 
-        for (unsigned long long INDEX = FULL_LENGTH + INSERT_LENGTH - 1; INDEX > FULL_LENGTH - 1; INDEX --)
+        for (unsigned long INDEX = FULL_LENGTH + INSERT_LENGTH - 1; INDEX > FULL_LENGTH - 1; INDEX --)
         {
 
                 STRING[INDEX] = STRING[INDEX - INSERT_LENGTH];
@@ -531,7 +530,7 @@ int STRING_INSERT(char* STRING, const char* INSERT_STRING, const unsigned long l
         }
 
 
-        for (unsigned long long INDEX = 0; INSERT_STRING[INDEX] != '\0'; INDEX ++)
+        for (unsigned long INDEX = 0; INSERT_STRING[INDEX] != '\0'; INDEX ++)
         {
 
                 STRING[INDEX + INSERT_INDEX] = INSERT_STRING[INDEX];
@@ -545,10 +544,10 @@ int STRING_INSERT(char* STRING, const char* INSERT_STRING, const unsigned long l
 }
 
 
-int STRING_INSERT_CHAR(char* STRING, const char INSERT_CHAR, const unsigned long long INSERT_INDEX)
+int STRING_INSERT_CHAR(char* STRING, const char INSERT_CHAR, const unsigned long INSERT_INDEX)
 {
 
-        unsigned long long FULL_LENGTH = STRING_LENGTH(STRING);
+        const unsigned long FULL_LENGTH = STRING_LENGTH(STRING);
 
 
 
@@ -560,7 +559,7 @@ int STRING_INSERT_CHAR(char* STRING, const char INSERT_CHAR, const unsigned long
         }
 
 
-        for (unsigned long long INDEX = FULL_LENGTH; INDEX > INSERT_INDEX; INDEX --)
+        for (unsigned long INDEX = FULL_LENGTH; INDEX > INSERT_INDEX; INDEX --)
         {
 
                 STRING[INDEX] = STRING[INDEX - 1];
@@ -584,13 +583,13 @@ int STRING_INSERT_CHAR(char* STRING, const char INSERT_CHAR, const unsigned long
 void STRING_FLIP(char* STRING)
 {
 
-        unsigned long long LENGTH = STRING_LENGTH(STRING);
+        const unsigned long LENGTH = STRING_LENGTH(STRING);
 
 
-        for (unsigned long long INDEX = 0; INDEX < LENGTH / 2; INDEX++)
+        for (unsigned long INDEX = 0; INDEX < LENGTH / 2; INDEX++)
         {
 
-                unsigned long long FLIP_INDEX = LENGTH - 1 - INDEX;
+                unsigned long FLIP_INDEX = LENGTH - 1 - INDEX;
                 char TEMP = STRING[INDEX];
 
 
@@ -602,16 +601,16 @@ void STRING_FLIP(char* STRING)
 }
 
 
-int SUB_STRING_SELF(char* STRING, const unsigned long long STARTING_INDEX, const unsigned long long TO_TAKE)
+int SUB_STRING_SELF(char* STRING, const unsigned long STARTING_INDEX, const unsigned long TO_TAKE)
 {
 
-        unsigned long long FULL_LENGTH = STRING_LENGTH(STRING);
-        unsigned long long SUB_INDEX;
-        unsigned long long STRING_INDEX;
+        const unsigned long FULL_LENGTH = STRING_LENGTH(STRING);
+        unsigned long SUB_INDEX;
+        unsigned long STRING_INDEX;
 
 
 
-        if (STARTING_INDEX + TO_TAKE >= FULL_LENGTH)
+        if (STARTING_INDEX + TO_TAKE > FULL_LENGTH)
         {
 
                 return STR_FAILURE;
@@ -637,15 +636,15 @@ int SUB_STRING_SELF(char* STRING, const unsigned long long STARTING_INDEX, const
 }
 
 
-int SUB_STRING(const char* BASE_STRING, char* SUB_STRING, const unsigned long long STARTING_INDEX, const unsigned long long TO_TAKE)
+int SUB_STRING(const char* BASE_STRING, char* SUB_STRING, const unsigned long STARTING_INDEX, const unsigned long TO_TAKE)
 {
 
-        unsigned long long FULL_LENGTH = STRING_LENGTH(BASE_STRING);
-        unsigned long long STRING_INDEX;
+        const unsigned long FULL_LENGTH = STRING_LENGTH(BASE_STRING);
+        unsigned long STRING_INDEX;
 
 
 
-        if (STARTING_INDEX + TO_TAKE >= FULL_LENGTH)
+        if (STARTING_INDEX + TO_TAKE > FULL_LENGTH)
         {
 
                 return STR_FAILURE;
@@ -674,7 +673,7 @@ int SUB_STRING(const char* BASE_STRING, char* SUB_STRING, const unsigned long lo
 void STRING_COPY(char* DESTINATION, const char* STRING)
 {
 
-        unsigned long long INDEX;
+        unsigned long INDEX;
 
 
 
@@ -694,7 +693,7 @@ void STRING_COPY(char* DESTINATION, const char* STRING)
 void STRING_SET(char* STRING, const char* SET)
 {
 
-        unsigned long long INDEX;
+        unsigned long INDEX;
 
 
 
@@ -714,7 +713,7 @@ void STRING_SET(char* STRING, const char* SET)
 void STRING_REPLACE_CHAR(char* STRING, const char FIND_CHAR, const char REPLACE_CHAR)
 {
 
-        for (unsigned long long INDEX = 0; STRING[INDEX] != '\0'; INDEX++)
+        for (unsigned long INDEX = 0; STRING[INDEX] != '\0'; INDEX++)
         {
 
                 if (STRING[INDEX] == FIND_CHAR)
@@ -732,7 +731,7 @@ void STRING_REPLACE_CHAR(char* STRING, const char FIND_CHAR, const char REPLACE_
 void STRING_REMOVE_FIRST(char* STRING)
 {
 
-        for (unsigned long long INDEX = 0; STRING[INDEX] != '\0'; INDEX ++)
+        for (unsigned long INDEX = 0; STRING[INDEX] != '\0'; INDEX ++)
         {
 
                 STRING[INDEX] = STRING[INDEX + 1];
@@ -745,7 +744,7 @@ void STRING_REMOVE_FIRST(char* STRING)
 void STRING_REMOVE_LAST(char* STRING)
 {
 
-        unsigned long long LENGTH = STRING_LENGTH(STRING);
+        const unsigned long LENGTH = STRING_LENGTH(STRING);
 
 
         if (LENGTH == 0)
@@ -761,7 +760,7 @@ void STRING_REMOVE_LAST(char* STRING)
 }
 
 
-int STRING_REMOVE_INDEX(char* STRING, unsigned long long INDEX)
+int STRING_REMOVE_INDEX(char* STRING, unsigned long INDEX)
 {
 
         if (INDEX >= STRING_LENGTH(STRING))
@@ -788,7 +787,7 @@ int STRING_REMOVE_INDEX(char* STRING, unsigned long long INDEX)
 void STRING_REMOVE_CHAR(char* STRING, const char CHAR)
 {
 
-        for (unsigned long long INDEX = 0; STRING[INDEX] != '\0';)
+        for (unsigned long INDEX = 0; STRING[INDEX] != '\0';)
         {
 
                 if (STRING[INDEX] == CHAR)
@@ -821,7 +820,7 @@ void STRING_TRIM(char* STRING)
         }
 
 
-        for (unsigned long long INDEX = 0; STRING[INDEX] != '\0'; INDEX ++)
+        for (unsigned long INDEX = 0; STRING[INDEX] != '\0'; INDEX ++)
         {
 
                 if (STRING[INDEX] == ' ' || STRING[INDEX] == '\n')
@@ -872,7 +871,7 @@ int STRING_FORMAT(char* STRING, const char* FORMAT, ...)
 
 
 
-        for (unsigned long long INDEX = 0; FORMAT[INDEX] != '\0'; INDEX ++)
+        for (unsigned long INDEX = 0; FORMAT[INDEX] != '\0'; INDEX ++)
         {
 
                 if (FORMAT[INDEX] == '%' && FORMAT[INDEX + 1] == 'V')
@@ -924,7 +923,7 @@ int STRING_FORMAT(char* STRING, const char* FORMAT, ...)
 int STRING_EQUALS(const char* STRING, const char* COMPARER)
 {
 
-        unsigned long long INDEX = 0;
+        unsigned long INDEX = 0;
 
 
 
@@ -960,7 +959,7 @@ int STRING_STARTS_WITH(const char* STRING, const char* STARTING)
         }
 
 
-        for (unsigned long long INDEX = 0; STRING[INDEX] != '\0'; INDEX ++)
+        for (unsigned long INDEX = 0; STRING[INDEX] != '\0'; INDEX ++)
         {
 
                 if (STRING[INDEX] != STARTING[INDEX])
@@ -981,8 +980,9 @@ int STRING_STARTS_WITH(const char* STRING, const char* STARTING)
 int STRING_ENDS_WITH(const char* STRING, const char* ENDING)
 {
 
-        unsigned long long BASE_LENGTH = STRING_LENGTH(STRING);
-        unsigned long long ENDING_LENGTH = STRING_LENGTH(ENDING);
+        const unsigned long BASE_LENGTH = STRING_LENGTH(STRING);
+        const unsigned long ENDING_LENGTH = STRING_LENGTH(ENDING);
+        const unsigned long DISTANCE = BASE_LENGTH - ENDING_LENGTH;
 
 
 
@@ -994,10 +994,10 @@ int STRING_ENDS_WITH(const char* STRING, const char* ENDING)
         }
 
 
-        for (unsigned long long INDEX = BASE_LENGTH - ENDING_LENGTH; STRING[INDEX] != '\0'; INDEX ++)
+        for (unsigned long INDEX = 0; ENDING[INDEX] != '\0'; INDEX ++)
         {
 
-                if (STRING[INDEX] != ENDING[INDEX])
+                if (STRING[INDEX + DISTANCE] != ENDING[INDEX])
                 {
 
                         return FALSE;
@@ -1015,7 +1015,7 @@ int STRING_ENDS_WITH(const char* STRING, const char* ENDING)
 int STRING_CONTAINS_CHAR(const char* STRING, const char CHAR)
 {
 
-        for (unsigned long long INDEX = 0; STRING[INDEX] != '\0'; INDEX ++)
+        for (unsigned long INDEX = 0; STRING[INDEX] != '\0'; INDEX ++)
         {
 
                 if (STRING[INDEX] == CHAR)
@@ -1039,8 +1039,16 @@ int STRING_CONTAINS_CHAR(const char* STRING, const char CHAR)
 int STRING_IS_INT(const char* STRING)
 {
 
-        unsigned long long STARTING_INDEX = 0;
+        unsigned long STARTING_INDEX = 0;
 
+
+
+        if (STRING_IS_EMPTY(STRING))
+        {
+
+                return FALSE;
+
+        }
 
 
         if (STRING[0] == '-')
@@ -1059,7 +1067,7 @@ int STRING_IS_INT(const char* STRING)
         }
 
 
-        for (unsigned long long INDEX = STARTING_INDEX; STRING[INDEX] != '\0'; INDEX ++)
+        for (unsigned long INDEX = STARTING_INDEX; STRING[INDEX] != '\0'; INDEX ++)
         {
 
                 if (!STRING_CONTAINS_CHAR("0123456789", STRING[INDEX]))
@@ -1078,10 +1086,10 @@ int STRING_IS_INT(const char* STRING)
 }
 
 
-unsigned long long STRING_LENGTH(const char *STRING)
+unsigned long STRING_LENGTH(const char *STRING)
 {
 
-        unsigned long long INDEX;
+        unsigned long INDEX;
 
 
 	for (INDEX = 0; STRING[INDEX] != '\0'; INDEX ++);
@@ -1092,10 +1100,10 @@ unsigned long long STRING_LENGTH(const char *STRING)
 }
 
 
-unsigned long long STRING_SIZE(const char* STRING)
+unsigned long STRING_SIZE(const char* STRING)
 {
 
-        unsigned long long INDEX;
+        unsigned long INDEX;
 
 
 	for (INDEX = 0; STRING[INDEX] != '\0'; INDEX ++);
