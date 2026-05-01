@@ -1,5 +1,6 @@
 #include "COMMON/STRINGS.h"
 #include "COMMON/INPUT.h"
+#include "COMMON/STRING_LISTS.h"
 #include <stdio.h>
 
 
@@ -216,6 +217,36 @@ void TEST()
 
 
                         printf("STRING ENDS WITH : ABCDEFG, EFG : %d\n\n", STRING_ENDS_WITH(STRING, ENDING));
+
+                }
+
+        }
+
+
+        // [STRING LISTS]
+        {
+
+                printf("==================== STRING LISTS ====================\n\n");
+
+
+
+
+                // [FREE STRING LIST]
+                {
+
+                        char** LIST;
+
+
+
+                        STRING_LIST_SETUP(&LIST, 8, 32);
+
+                        STRING_LIST_APPEND(&LIST, "HELLO WORLD");
+
+                        int RUN = FREE_STRING_LIST(&LIST);
+
+
+
+                        printf("STRING_LIST_SETUP : STRLIST STATUS => %d \n\n", RUN);
 
                 }
 

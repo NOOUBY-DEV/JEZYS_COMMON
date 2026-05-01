@@ -73,27 +73,41 @@ int STRING_LIST_SETUP(char*** STRING_LIST, const unsigned long LIST_SIZE, const 
 /**
  * - BRIEF  : FREES THE GIVEN STRING LIST
  *
- * - NOTE 1 : FREES THE STRING POINTERS AND THE STRING LIST POINTER
- *
- * - NOTE 2 : MAKE SURE THE STRING LIST IS MALLOCED
+ * - NOTE   : FOR EACH STRING IN THE STRING LIST, IF ANY ONE IS NULL, FUNCTION RETURNS STRLIST_FAILURE, OTHERWISE, STRLIST_SUCCESS
  *
  * - USAGE  : FREE_STRING_LIST(&STRING_LIST);
 */
-void FREE_STRING_LIST(char*** STRING_LIST)
+int FREE_STRING_LIST(char*** STRING_LIST)
 {
 
         const unsigned long LIST_SIZE = STRING_LIST_SIZE(STRING_LIST);
 
 
+
         for (unsigned long INDEX = 0; INDEX < LIST_SIZE; INDEX ++)
         {
 
-                free((*STRING_LIST)[INDEX]);
+                char* STRING = (*STRING_LIST)[INDEX];
+
+
+                if (STRING == NULL)
+                {
+
+                        return STRLIST_FAILURE;
+
+                }
+
+
+                free(STRING);
 
         }
 
 
         free(*STRING_LIST);
+
+
+
+        return STRLIST_SUCCESS;
 
 }
 
