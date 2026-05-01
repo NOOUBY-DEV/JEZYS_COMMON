@@ -242,10 +242,4 @@ void TEST()
 
         }
 
-
-        // TEST COMMENT
-        // TEST COMMENT 2
-        // TEST COMMENT 3
-        // TEST COMMENT 4
-
 }
