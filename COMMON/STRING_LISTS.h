@@ -15,9 +15,12 @@
 
 int STRING_LIST_SETUP(char*** STRING_LIST, const unsigned long LIST_SIZE, const unsigned long STRING_SIZE);
 
+
 void FREE_STRING_LIST(char*** STRING_LIST);
 
-void STRING_LIST_APPEND(char*** STRING_LIST, const char* APPEND_STRING);
+
+int STRING_LIST_APPEND(char*** STRING_LIST, const char* APPEND_STRING);
+
 
 unsigned long STRING_LIST_SIZE(char*** STRING_LIST);
 
