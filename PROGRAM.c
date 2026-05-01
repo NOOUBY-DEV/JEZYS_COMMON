@@ -1,6 +1,6 @@
 #include "COMMON/STRINGS.h"
+#include "COMMON/INPUT.h"
 #include <stdio.h>
-
 
 
 
@@ -218,6 +218,27 @@ void TEST()
                         printf("STRING ENDS WITH : ABCDEFG, EFG : %d\n\n", STRING_ENDS_WITH(STRING, ENDING));
 
                 }
+
+        }
+
+
+        // [INPUT]
+        {
+
+                printf("==================== INPUT ====================\n\n");
+
+
+                char STRING[256] = EMPTY;
+
+
+
+                printf("[$] INPUT ->  ");
+
+                INPUT_TO_STRING(STRING, "ABCDEFGHIJKLMNOPQRSTUVWXYZ ", 255);
+
+
+
+                printf("INPUT_TO_STRING : %s \n\n", STRING);
 
         }
 
