@@ -1,4 +1,7 @@
 #include "INPUT.h"
+#include "MISC.h"
+#include "STRINGS.h"
+#include <stdio.h>
 
 
 
@@ -42,5 +45,83 @@ void WAIT_FOR_KEY(const char TARGET_KEY)
                 TYPED_KEY = PRESSED_KEY();
 
         }
+
+}
+
+
+void INPUT_TO_STRING(char* STRING, const char* ALLOWED_KEYS, const unsigned long MAX_LENGTH)
+{
+
+        unsigned long LENGTH = 0;
+
+
+
+        STRING_CLEAR(STRING);
+
+
+        fflush(stdout);
+
+
+
+        while (TRUE)
+        {
+
+                char KEY = PRESSED_KEY();
+
+
+
+                if (KEY == '\n')
+                {
+
+                        fflush(stdout);
+
+
+                        break;
+
+
+                }
+                else if (KEY == '\b' || KEY == 127)
+                {
+
+                        if (LENGTH == 0)
+                        {
+
+                                continue;
+
+                        }
+
+
+                        STRING_REMOVE_LAST(STRING);
+
+
+                        printf("\b \b");
+
+                        fflush(stdout);
+
+
+                        LENGTH --;
+
+
+                }
+                else if (STRING_CONTAINS_CHAR(ALLOWED_KEYS, KEY) && (LENGTH < MAX_LENGTH))
+                {
+
+                        STRING_APPEND_CHAR(STRING, KEY);
+
+
+                        printf("%c", KEY);
+
+
+                        fflush(stdout);
+
+
+                        LENGTH ++;
+
+                }
+
+        }
+
+
+        printf("\n");
 
 }

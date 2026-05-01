@@ -13,7 +13,11 @@
 
 char PRESSED_KEY();
 
+
 void WAIT_FOR_KEY(const char TARGET_KEY);
+
+
+void INPUT_TO_STRING(char* STRING, const char* ALLOWED_KEYS, const unsigned long MAX_LENGTH);
 
 
 
