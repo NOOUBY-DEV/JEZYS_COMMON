@@ -1,18 +1,20 @@
 [
-
         {
-
                 "label": "BUILD & RUN",
 
                 "command": "bash",
 
-                "args":
-                [
-
+                "args": [
                         "-c",
-                        "cd \"$ZED_WORKTREE_ROOT\" && gcc -o PROGRAM $(find . -name \"*.c\") && ./PROGRAM"
-
+                        "cd \"$ZED_WORKTREE_ROOT\" && gcc -o PROGRAM $(find . -name \"*.c\") && ./PROGRAM",
                 ],
+        },
 
+        {
+                "label": "OPEN GIT-GUI",
+
+                "command": "bash",
+
+                "args": ["-c", "cd \"$ZED_WORKTREE_ROOT\" && git gui"],
         },
 ]
