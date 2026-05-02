@@ -918,6 +918,46 @@ void STRING_REPLACE_CHAR(char* STRING, const char FIND_CHAR, const char REPLACE_
 
 
 /**
+ * - BRIEF  : REPLACE A STRING SEQUENCE IN THE BASE STRING, STARTING FROM THE GIVEN INDEX
+ *
+ * - NOTE   : IF INDEX + REPLACE LENGTH > BASE_LENGTH, FUNCTION RETURNS STR_FAILURE, OTHERWISE, STR_SUCCESS
+ *
+ * - USAGE  : STRING_REPLACE_AT_INDEX(STRING, "WORLD", 7);
+*/
+int STRING_REPLACE_SEQUENCE(char* BASE, const char* REPLACE, unsigned long INDEX)
+{
+
+        unsigned long BASE_LENGTH = STRING_LENGTH(BASE);
+        unsigned long REPLACE_LENGTH = STRING_LENGTH(REPLACE);
+        unsigned long BASE_INDEX;
+        unsigned long REPLACE_INDEX;
+
+
+
+        if (INDEX + REPLACE_LENGTH > BASE_LENGTH)
+        {
+
+                return STR_FAILURE;
+
+        }
+
+
+
+        for (BASE_INDEX = INDEX, REPLACE_INDEX = 0; BASE[BASE_INDEX] != '\0'; BASE_INDEX ++, REPLACE_INDEX ++)
+        {
+
+                BASE[BASE_INDEX] = REPLACE[REPLACE_INDEX];
+
+        }
+
+
+
+        return STR_SUCCESS;
+
+}
+
+
+/**
  * - BRIEF  : REMOVES THE FIRST CHAR IN A STRING, AND SHIFTS BACK BY 1
  *
  * - USAGE  : STRING_REMOVE_FIRST(STRING);

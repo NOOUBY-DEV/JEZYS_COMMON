@@ -199,6 +199,20 @@ void TEST()
 
                 }
 
+
+                // [STRING REPLACE AT INDEX]
+                {
+
+                        char STRING[64] = "HELLO XXXXX";
+
+
+                        STRING_REPLACE_SEQUENCE(STRING, "WORLD", 6);
+
+
+                        printf("STRING_REPLACE_SEQUENCE : %s \n\n", STRING);
+
+                }
+
         }
 
 

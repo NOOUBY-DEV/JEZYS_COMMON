@@ -109,6 +109,9 @@ void STRING_SET(char* STRING, const char* SET);
 void STRING_REPLACE_CHAR(char* STRING, const char FIND_CHAR, const char REPLACE_CHAR);
 
 
+int STRING_REPLACE_SEQUENCE(char* BASE, const char* REPLACE, unsigned long INDEX);
+
+
 void STRING_REMOVE_FIRST(char* STRING);
 
 
