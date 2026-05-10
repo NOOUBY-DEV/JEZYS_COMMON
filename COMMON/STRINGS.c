@@ -597,6 +597,14 @@ void STRING_PREPEND(char* STRING, const char* PREPEND)
 
 
 
+        if (OLD_LENGTH == 0)
+        {
+
+                STRING_COPY(STRING, PREPEND);
+
+        }
+
+
         for (unsigned long INDEX = OLD_LENGTH + PREPEND_LENGTH - 1; INDEX >= OLD_LENGTH; INDEX --)
         {
 
@@ -625,6 +633,14 @@ void STRING_PREPEND_CHAR(char* STRING, const char PREPEND)
 
         const unsigned long LENGTH = STRING_LENGTH(STRING);
 
+
+
+        if (LENGTH == 0)
+        {
+
+                STRING_APPEND_CHAR(STRING, PREPEND);
+
+        }
 
 
         for (unsigned long INDEX = LENGTH; INDEX > 0; INDEX --)
