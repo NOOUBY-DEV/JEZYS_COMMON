@@ -436,11 +436,11 @@ void UNSIGNED_INT_TO_STRING(char* STRING, unsigned long INT)
 */
 char CHAR_TO_UPPER(char CHAR)
 {
+	
+		#define IS_UPPER (CHAR >= 97 && CHAR <= 122)
 
-        const char* LOWER = "abcdefghijklmnopqrstuvwxyz";
-
-
-        if (STRING_CONTAINS_CHAR(LOWER, CHAR))
+	
+        if (IS_UPPER)
         {
 
                 CHAR -= 32;
@@ -464,11 +464,11 @@ char CHAR_TO_UPPER(char CHAR)
 */
 char CHAR_TO_LOWER(char CHAR)
 {
-
-        const char* UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-
-        if (STRING_CONTAINS_CHAR(UPPER, CHAR))
+	
+		#define IS_LOWER (CHAR >= 65 && CHAR <= 90)
+	
+	
+        if (IS_LOWER)
         {
 
                 CHAR += 32;
