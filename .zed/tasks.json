@@ -11,10 +11,11 @@
         },
 
         {
-                "label": "OPEN GIT-GUI",
+                "label": "OPEN LAZYGIT",
 
-                "command": "bash",
-
-                "args": ["-c", "cd \"$ZED_WORKTREE_ROOT\" && git gui"],
+                "command": "kitty",
+                "args": ["--directory", "$ZED_WORKTREE_ROOT", "lazygit & disown"],
+                "use_new_terminal": false,
+                "allow_concurrent_runs": false
         },
 ]
