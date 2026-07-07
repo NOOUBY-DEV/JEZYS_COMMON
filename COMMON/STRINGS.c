@@ -436,10 +436,10 @@ void UNSIGNED_INT_TO_STRING(char* STRING, unsigned long INT)
 */
 char CHAR_TO_UPPER(char CHAR)
 {
-	
+
 		#define IS_UPPER (CHAR >= 97 && CHAR <= 122)
 
-	
+
         if (IS_UPPER)
         {
 
@@ -464,10 +464,10 @@ char CHAR_TO_UPPER(char CHAR)
 */
 char CHAR_TO_LOWER(char CHAR)
 {
-	
+
 		#define IS_LOWER (CHAR >= 65 && CHAR <= 90)
-	
-	
+
+
         if (IS_LOWER)
         {
 
@@ -592,20 +592,12 @@ void STRING_APPEND_CHAR(char* STRING, const char CHAR)
 void STRING_PREPEND(char* STRING, const char* PREPEND)
 {
 
-        unsigned long OLD_LENGTH = STRING_LENGTH(STRING);
+        unsigned long BASE_LENGTH = STRING_LENGTH(STRING);
         unsigned long PREPEND_LENGTH = STRING_LENGTH(PREPEND);
 
 
 
-        if (OLD_LENGTH == 0)
-        {
-
-                STRING_COPY(STRING, PREPEND);
-
-        }
-
-
-        for (unsigned long INDEX = OLD_LENGTH + PREPEND_LENGTH - 1; INDEX >= OLD_LENGTH; INDEX --)
+        for (unsigned long INDEX = BASE_LENGTH + PREPEND_LENGTH; INDEX >= PREPEND_LENGTH; INDEX --)
         {
 
                 STRING[INDEX] = STRING[INDEX - PREPEND_LENGTH];
@@ -633,14 +625,6 @@ void STRING_PREPEND_CHAR(char* STRING, const char PREPEND)
 
         const unsigned long LENGTH = STRING_LENGTH(STRING);
 
-
-
-        if (LENGTH == 0)
-        {
-
-                STRING_APPEND_CHAR(STRING, PREPEND);
-
-        }
 
 
         for (unsigned long INDEX = LENGTH; INDEX > 0; INDEX --)
@@ -671,12 +655,12 @@ void STRING_PREPEND_CHAR(char* STRING, const char PREPEND)
 int STRING_INSERT(char* STRING, const char* INSERT_STRING, const unsigned long INSERT_INDEX)
 {
 
-        const unsigned long FULL_LENGTH = STRING_LENGTH(STRING);
+        const unsigned long BASE_LENGTH = STRING_LENGTH(STRING);
         const unsigned long INSERT_LENGTH = STRING_LENGTH(INSERT_STRING);
 
 
 
-        if (INSERT_INDEX > FULL_LENGTH)
+        if (INSERT_INDEX >= BASE_LENGTH)
         {
 
                 return STR_FAILURE;
@@ -684,7 +668,8 @@ int STRING_INSERT(char* STRING, const char* INSERT_STRING, const unsigned long I
         }
 
 
-        for (unsigned long INDEX = FULL_LENGTH + INSERT_LENGTH - 1; INDEX > FULL_LENGTH - 1; INDEX --)
+
+        for (unsigned long INDEX = BASE_LENGTH + INSERT_LENGTH; INDEX > INSERT_INDEX; INDEX --)
         {
 
                 STRING[INDEX] = STRING[INDEX - INSERT_LENGTH];
@@ -716,11 +701,11 @@ int STRING_INSERT(char* STRING, const char* INSERT_STRING, const unsigned long I
 int STRING_INSERT_CHAR(char* STRING, const char INSERT_CHAR, const unsigned long INSERT_INDEX)
 {
 
-        const unsigned long FULL_LENGTH = STRING_LENGTH(STRING);
+        const unsigned long BASE_LENGTH = STRING_LENGTH(STRING);
 
 
 
-        if (INSERT_INDEX > FULL_LENGTH)
+        if (INSERT_INDEX >= BASE_LENGTH)
         {
 
                 return STR_FAILURE;
@@ -728,7 +713,7 @@ int STRING_INSERT_CHAR(char* STRING, const char INSERT_CHAR, const unsigned long
         }
 
 
-        for (unsigned long INDEX = FULL_LENGTH; INDEX > INSERT_INDEX; INDEX --)
+        for (unsigned long INDEX = BASE_LENGTH; INDEX > INSERT_INDEX; INDEX --)
         {
 
                 STRING[INDEX] = STRING[INDEX - 1];
@@ -740,7 +725,7 @@ int STRING_INSERT_CHAR(char* STRING, const char INSERT_CHAR, const unsigned long
         STRING[INSERT_INDEX] = INSERT_CHAR;
 
 
-        STRING[FULL_LENGTH + 1] = '\0';
+        STRING[BASE_LENGTH + 1] = '\0';
 
 
 

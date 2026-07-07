@@ -98,10 +98,10 @@ void TEST()
                 // [STRING PREPEND]
                 {
 
-                        char STRING[64] = "DEF";
+                        char STRING[64] = "DEFG";
 
 
-                        STRING_PREPEND(STRING, "ABC");
+                        STRING_PREPEND(STRING, "ABC|");
 
 
                         printf("STRING_PREPEND : %s \n\n", STRING);
@@ -112,7 +112,7 @@ void TEST()
                 // [STRING PREPEND CHAR]
                 {
 
-                        char STRING[64] = "BCDEF";
+                        char STRING[64] = "|BCDEF";
 
 
                         STRING_PREPEND_CHAR(STRING, 'A');
@@ -126,11 +126,11 @@ void TEST()
                 // [STRING INSERT CHAR]
                 {
 
-                        char STRING__INSERT__CHAR[64] = "ABCEF";
+                        char STRING__INSERT__CHAR[64] = "ABC[]EF";
 
 
 
-                        STRING_INSERT_CHAR(STRING__INSERT__CHAR, 'D', 3);
+                        STRING_INSERT_CHAR(STRING__INSERT__CHAR, 'D', 4);
 
 
 
@@ -142,11 +142,11 @@ void TEST()
                 // [STRING INSERT]
                 {
 
-                        char STRING__INSERT__CHAR[64] = "ABEF";
+                        char STRING__INSERT__CHAR[64] = "ABF";
 
 
 
-                        STRING_INSERT(STRING__INSERT__CHAR, "CD", 2);
+                        STRING_INSERT(STRING__INSERT__CHAR, "[CDE]", 2);
 
 
 
@@ -187,8 +187,8 @@ void TEST()
                 {
 
                         char STRING[256];
-                        char FORMAT[] = "HELLO MY NAME IS %V AND I LOVE %V";
-                        char NAME[] = "NOOUBY";
+                        char FORMAT[] = "HELLO MY NAME IS [%V] AND I LOVE [%V]";
+                        char NAME[] = "NOOUBY-DEV";
                         char LANGUAGE[] = "C";
 
 
@@ -203,10 +203,10 @@ void TEST()
                 // [STRING REPLACE AT INDEX]
                 {
 
-                        char STRING[64] = "HELLO XXXXX";
+                        char STRING[64] = "HELLO XXXXXXX";
 
 
-                        STRING_REPLACE_SEQUENCE(STRING, "WORLD", 6);
+                        STRING_REPLACE_SEQUENCE(STRING, "[WORLD]", 6);
 
 
                         printf("STRING_REPLACE_SEQUENCE : %s \n\n", STRING);
