@@ -3,12 +3,13 @@
 
 
 
-#include "MISC.h"
 #include <stdarg.h>
 #include <stdio.h>
 
 
 
+#define TRUE 1
+#define FALSE 0
 #define EMPTY ""
 #define STR_FAILURE 0
 #define STR_SUCCESS 1
