@@ -6,7 +6,7 @@
 
                 "args": [
                         "-c",
-                        "cd \"$ZED_WORKTREE_ROOT\" && gcc -o PROGRAM $(find . -name \"*.c\") && ./PROGRAM",
+                        "cd \"$ZED_WORKTREE_ROOT\" && gcc -o TEST $(find . -name \"*.c\") && ./TEST",
                 ]
         },
 

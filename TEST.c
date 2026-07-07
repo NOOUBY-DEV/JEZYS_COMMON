@@ -5,7 +5,9 @@
 
 
 
-void TEST();
+void DEBUG_MODE();
+void ASK_FOR_MODE();
+void SHOWCASE_MODE();
 
 
 
@@ -13,7 +15,7 @@ void TEST();
 int main()
 {
 
-        TEST();
+        ASK_FOR_MODE();
 
 
         return 0;
@@ -21,7 +23,77 @@ int main()
 }
 
 
-void TEST()
+void ASK_FOR_MODE()
+{
+
+        while (TRUE)
+        {
+
+                char ANSWER[16];
+
+
+
+                printf("[&] |  SHOWCASE (UNFINISHED) [1]  |  DEBUG [2]  |  EXIT [0]  |\n[$] ->  ");
+
+
+
+                INPUT_TO_STRING(ANSWER, "120", 1);
+
+
+
+                // [CHECK MODE]
+                {
+
+                        if (STRING_EQUALS(ANSWER, "0"))
+                        {
+
+                                break;
+
+                        }
+
+                        else if (STRING_EQUALS(ANSWER, "1"))
+                        {
+
+                                SHOWCASE_MODE();
+
+
+                                break;
+
+                        }
+
+                        else if (STRING_EQUALS(ANSWER, "2"))
+                        {
+
+                                DEBUG_MODE();
+
+
+                                break;
+
+                        }
+
+                        else
+                        {
+
+                                printf("[!] INVALID OPTION. \n");
+
+                        }
+
+                }
+
+        }
+
+}
+
+
+void SHOWCASE_MODE()
+{
+
+
+
+}
+
+
+void DEBUG_MODE()
 {
 
         printf("==================== CONVERSION ====================\n\n");
