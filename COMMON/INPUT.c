@@ -1,16 +1,15 @@
 #include "INPUT.h"
 #include "STRINGS.h"
+#include <stdio.h>
 
 
 
-char PRESSED_KEY()
+char PRESSED_KEY(int TO_PRINT)
 {
 
         struct termios OLD_T, NEW_T;
 
-        char CHAR;
-
-
+        char KEY;
 
         tcgetattr(STDIN_FILENO, &OLD_T);
 
@@ -20,13 +19,20 @@ char PRESSED_KEY()
 
         tcsetattr(STDIN_FILENO, TCSANOW, &NEW_T);
 
-        CHAR = (char)getchar();
+        KEY = (char)getchar();
 
         tcsetattr(STDIN_FILENO, TCSANOW, &OLD_T);
 
 
+        if (TO_PRINT)
+        {
 
-        return CHAR;
+                printf("%c", KEY);
+
+        }
+
+
+        return KEY;
 
 }
 
@@ -40,7 +46,7 @@ void WAIT_FOR_KEY(const char TARGET_KEY)
         while (TYPED_KEY != TARGET_KEY)
         {
 
-                TYPED_KEY = PRESSED_KEY();
+                TYPED_KEY = PRESSED_KEY(FALSE);
 
         }
 
@@ -64,7 +70,7 @@ void INPUT_TO_STRING(char* STRING, const char* ALLOWED_KEYS, const unsigned long
         while (TRUE)
         {
 
-                char KEY = PRESSED_KEY();
+                char KEY = PRESSED_KEY(FALSE);
 
 
 

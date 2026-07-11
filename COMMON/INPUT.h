@@ -15,7 +15,7 @@
 
 
 
-char PRESSED_KEY();
+char PRESSED_KEY(int TO_PRINT);
 
 
 void WAIT_FOR_KEY(const char TARGET_KEY);
